@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo -e "172.31.84.204 master.ethans.com master\n172.31.36.244 worker.ethans.com worker" | sudo tee -a /etc/hosts
+echo -e "172.31.80.164 master.ethans.com master\n172.31.82.65 worker.ethans.com worker" | sudo tee -a /etc/hosts
 sudo apt-get update
 sudo apt install docker.io -y
 sudo systemctl enable docker
@@ -18,7 +18,7 @@ echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.
 sudo apt-get update && sudo apt-get install -y kubelet kubeadm kubectl
 sudo systemctl enable kubelet
 sudo systemctl start kubelet
-sudo kubeadm init --apiserver-advertise-address=172.31.84.204 --pod-network-cidr=172.31.80.0/20 > kubeadminit.log 2>&1
+sudo kubeadm init --apiserver-advertise-address=172.31.80.164 --pod-network-cidr=172.31.80.0/20 > kubeadminit.log 2>&1
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
