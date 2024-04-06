@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo -e "172.31.80.164 master.ethans.com master\n172.31.82.65 worker.ethans.com worker" | sudo tee -a /etc/hosts
+echo -e "172.31.16.110 master.ethans.com master\n172.31.29.14 worker.ethans.com worker" | sudo tee -a /etc/hosts
 sudo apt-get update
 sudo apt install docker.io -y
 sudo systemctl enable docker
